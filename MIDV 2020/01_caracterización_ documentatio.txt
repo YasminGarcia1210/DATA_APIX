@@ -1,0 +1,42 @@
+🎯 Objetivo del script:
+Este cuaderno de Python realiza la caracterización de imágenes de documentos de identidad mediante detección y extracción de embeddings faciales utilizando el modelo InsightFace (buffalo_l). El objetivo es generar una base de datos de vectores faciales a partir de imágenes etiquetadas, que luego pueden ser utilizados para tareas de verificación biométrica o detección de fraudes.
+
+🔧 Funcionalidades implementadas:
+Carga y visualización de imágenes desde una ruta base (ruta_base) organizada por carpetas (cada una correspondiente a un tipo de documento o país).
+
+Inicialización del modelo InsightFace en modo CPU, para detección facial y extracción de embeddings.
+
+Extracción de embeddings faciales a partir de las primeras 100 imágenes .jpg encontradas en las subcarpetas del directorio de imágenes.
+
+Construcción de un DataFrame con los resultados: nombre del archivo, carpeta (documento) y las 512 dimensiones del embedding facial.
+
+Exportación a CSV de los resultados (embeddings_faces_test.csv) para su posterior análisis o comparación.
+
+Evaluación de calidad de detección facial: se realiza un conteo y listado de imágenes donde no se detectaron rostros.
+
+Visualización de imágenes fallidas, mostrando ejemplos de imágenes donde InsightFace no logró hacer detección.
+
+Inicio de integración con anotaciones .json generadas por VIA, posiblemente para comparar detecciones automáticas vs etiquetas manuales (el código empieza la función cargar_rostros_anotados, aunque está incompleta en la vista previa).
+
+🧠 Tecnologías y librerías usadas:
+InsightFace: Modelo de embeddings faciales (buffalo_l).
+
+OpenCV, PIL, Matplotlib: Para carga y visualización de imágenes.
+
+Pandas: Para organización y exportación de los datos.
+
+TQDM: Para visualización de progreso en bucles largos.
+
+Pathlib, os, json, NumPy: Para manejo de rutas y archivos.
+
+💾 Salidas principales:
+embeddings_faces_test.csv: Archivo con los vectores faciales y metadatos de las imágenes.
+
+Impresiones en consola de imágenes fallidas y visualización de algunos ejemplos directamente en el notebook.
+
+🚧 Notas adicionales:
+El script está orientado a correr en Google Colab o Jupyter, con visualización en línea (%matplotlib inline).
+
+Requiere que el modelo buffalo_l esté descargado automáticamente por InsightFace en la ruta del usuario.
+
+Las rutas usadas (G:/Mi unidad/...) son específicas de tu entorno local, por lo tanto deben adaptarse si se desea correr el código en otra máquina o en la nube.
