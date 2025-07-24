@@ -8,7 +8,7 @@ Este repositorio contiene un pipeline completo para la **verificación de identi
 
 ## 📁 Estructura del Repositorio
 
-
+```
 .
 ├── embeddings.py              # Extracción de embeddings faciales
 ├── verificacion.py           # Cálculo de similitud y evaluación de match
@@ -16,7 +16,7 @@ Este repositorio contiene un pipeline completo para la **verificación de identi
 ├── test_embeddings.py        # Prueba de extracción de embeddings
 ├── test_verificacion.py      # Prueba completa de verificación facial
 
-
+```
 
 
 ## 🚀 Cómo funciona
