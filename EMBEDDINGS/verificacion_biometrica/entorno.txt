@@ -1,0 +1,1 @@
+& "G:\Mi unidad\APIUX-TECH\MIDV_Project\.venv\Scripts\Activate.ps1"

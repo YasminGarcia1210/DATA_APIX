@@ -1,0 +1,66 @@
+
+Proyecto: Verificación Biométrica Facial con InsightFace
+--------------------------------------------------------
+
+🎯 Objetivo general
+-------------------
+Este conjunto de scripts permite realizar verificación de identidad facial, comparando el rostro de una persona en dos imágenes distintas (por ejemplo, una foto en vivo y una cédula escaneada). Se basa en la generación de embeddings faciales con la librería InsightFace y la comparación mediante similitud de coseno.
+
+🧩 Módulos del sistema y funciones principales
+---------------------------------------------
+
+1. embeddings.py
+   -------------
+   - Carga una imagen desde una ruta.
+   - Detecta el rostro con InsightFace (buffalo_l).
+   - Extrae el embedding (vector normalizado de 512 dimensiones).
+   - Opcionalmente guarda el rostro detectado como imagen .jpg.
+   Función principal:
+     obtener_embedding(ruta_imagen, guardar_rostro=True)
+
+2. verificacion.py
+   ----------------
+   - Calcula la similitud de coseno entre dos vectores.
+   - Usa un umbral (por defecto 0.35) para decidir si es un "match" aceptable.
+   Funciones clave:
+     similitud_coseno(vec1, vec2)
+     es_match(cos_sim, umbral=0.35)
+
+3. preprocesamiento.py
+   ---------------------
+   - Contiene funciones auxiliares para cargar imágenes y convertirlas a formato RGB.
+   Función principal:
+     cargar_imagen(ruta)
+
+🧪 Scripts de prueba y validación
+---------------------------------
+
+1. test_embeddings.py
+   -------------------
+   - Llama a obtener_embedding() para dos imágenes distintas.
+   - Imprime por consola los primeros valores de cada vector.
+
+2. test_verificacion.py
+   ----------------------
+   - Carga dos imágenes.
+   - Extrae sus embeddings.
+   - Calcula similitud de coseno.
+   - Evalúa si es un "match" o no con base en el umbral.
+   - Imprime el resultado amigablemente (con emojis).
+
+🧠 Flujo general de funcionamiento
+-----------------------------------
+[Imagen 1] ---> obtener_embedding() \
+                                   ---> similitud_coseno() ---> es_match() ---> resultado
+[Imagen 2] ---> obtener_embedding() /
+
+🧪 Resultado esperado
+----------------------
+- Si ambas imágenes contienen el mismo rostro → alta similitud → ✅ Sí 💚
+- Si no → baja similitud → ❌ No
+
+🚧 Recomendaciones técnicas
+----------------------------
+- Asegurarse de tener imágenes con rostros bien iluminados y visibles.
+- Ideal para pruebas en escenarios de validación de documentos de identidad vs foto en vivo.
+- Se puede extender fácilmente con métricas, evaluaciones por lotes, o visualizaciones.
