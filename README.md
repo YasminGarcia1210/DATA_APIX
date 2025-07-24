@@ -4,20 +4,20 @@
 
 Este repositorio contiene un pipeline completo para la **verificación de identidad facial**, basado en el uso de embeddings faciales generados con la librería `InsightFace`. El sistema permite comparar dos imágenes y determinar si corresponden a la misma persona utilizando medidas de similitud.
 
----
+
 
 ## 📁 Estructura del Repositorio
 
-```
+
 .
 ├── embeddings.py              # Extracción de embeddings faciales
 ├── verificacion.py           # Cálculo de similitud y evaluación de match
 ├── preprocesamiento.py       # Utilidades de carga de imágenes (RGB)
 ├── test_embeddings.py        # Prueba de extracción de embeddings
 ├── test_verificacion.py      # Prueba completa de verificación facial
-```
 
----
+
+
 
 ## 🚀 Cómo funciona
 
@@ -26,7 +26,7 @@ Este repositorio contiene un pipeline completo para la **verificación de identi
 3. **Comparación:** se calcula la similitud coseno entre ambos vectores.
 4. **Evaluación:** se define si hay "match" o no con base en un umbral.
 
----
+
 
 ## 🔧 Requisitos
 
@@ -41,7 +41,7 @@ Instalación rápida:
 pip install opencv-python-headless numpy insightface tqdm matplotlib
 ```
 
----
+
 
 ## 🧪 Uso de prueba
 
@@ -55,7 +55,7 @@ python test_embeddings.py
 python test_verificacion.py
 ```
 
----
+
 
 ## 📏 Parámetros de verificación
 
@@ -63,7 +63,7 @@ python test_verificacion.py
 - Umbral configurable (por defecto: 0.35)
 - Resultado binario: "MATCH" o "NO MATCH"
 
----
+
 
 ## 🧠 Casos de uso
 
@@ -71,14 +71,7 @@ python test_verificacion.py
 - Comparación de imágenes biométricas
 - Verificación antifraude (foto vs documento)
 
----
 
-## ❤️ Autora
-
-Desarrollado por **Yasmin García** como parte de un sistema de verificación biométrica facial.  
-Este proyecto forma parte de una arquitectura modular pensada para integrarse en sistemas de autenticación y verificación documental.
-
----
 
 ## 📌 Nota
 
