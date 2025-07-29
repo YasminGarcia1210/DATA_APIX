@@ -1,0 +1,141 @@
+# DATA_APIX
+
+# 🧠 Pipeline Completo de Verificación Facial con InsightFace y CelebA
+
+Este repositorio contiene un **pipeline completo y robusto** para verificación de identidad facial usando **InsightFace** y el dataset **CelebA**. El sistema incluye alineación facial, extracción de embeddings, análisis estadístico y herramientas de visualización.
+
+## ✨ Características Principales
+
+🔧 **Alineación Facial Automática**  
+🧠 **Extracción de Embeddings**  
+📊 **Análisis Estadístico**  
+📈 **Visualizaciones Interactivas**  
+🎯 **Verificación Robusta**  
+📦 **Soporte para CelebA**
+
+## 📁 Estructura del Repositorio
+
+├── celeba_pipeline.py # Pipeline principal
+├── embedding_utils.py # Métricas y visualización
+├── demo_pipeline.py # Ejecución paso a paso
+├── setup.py # Instalación automatizada
+├── requirements.txt # Dependencias
+├── config.py # Parámetros del sistema
+├── download_celeba.py # Script de descarga (opcional)
+│
+├── data/
+│ ├── celeba/
+│ │ ├── img_align_celeba/
+│ │ ├── aligned_faces/
+│ │ ├── embeddings/
+│ │ └── identity_CelebA.txt
+│ └── sample_images/
+│
+└── EMBEDDINGS/verificacion_biometrica/
+├── embeddings.py
+├── verificacion.py
+└── test_*.py
+
+
+## 🚀 Instalación Rápida
+
+```bash
+# Automática
+python setup.py
+
+# O manual:
+pip install -r requirements.txt
+mkdir -p data/celeba/{img_align_celeba,aligned_faces,embeddings}
+
+
+## 🚀 Instalación Rápida
+
+```bash
+# Automática
+python setup.py
+
+# O manual:
+pip install -r requirements.txt
+mkdir -p data/celeba/{img_align_celeba,aligned_faces,embeddings}
+🧪 Ejecución de Ejemplo
+bash
+Copiar
+Editar
+# Demo completa
+python demo_pipeline.py
+
+# Descargar y procesar CelebA
+python download_celeba.py
+python celeba_pipeline.py
+
+# Análisis de embeddings
+python embedding_utils.py
+🔧 Uso Programático
+python
+Copiar
+Editar
+from celeba_pipeline import CelebAProcessor
+processor = CelebAProcessor(model_name="buffalo_l", data_dir="data/celeba")
+aligned = processor.align_face("ruta/a/imagen.jpg")
+embedding = processor.extract_embedding(aligned)
+
+from embedding_utils import EmbeddingAnalyzer
+analyzer = EmbeddingAnalyzer("data/celeba/embeddings/celeba_embeddings_full.pkl")
+result = analyzer.verify_identity(embedding1, embedding2, threshold=0.4)
+📊 Análisis de Embeddings
+python
+Copiar
+Editar
+# Estadísticas
+intra = analyzer.calculate_intra_identity_statistics()
+inter = analyzer.calculate_inter_identity_statistics()
+thresh = analyzer.evaluate_threshold()
+
+# Visualizaciones
+analyzer.plot_similarity_distribution("dist.png")
+analyzer.visualize_embeddings_2d(method="tsne", save_path="embed2d.png")
+🎯 Parámetros Clave
+Modelos: buffalo_l, arcface_r50, antelopev2
+
+Umbral típico de similitud: 0.4 ~ 0.6
+
+Resolución ideal: 640x640
+
+Tamaño del embedding: 512 dimensiones
+
+📥 Dataset CelebA
+Página oficial: CelebA
+
+Requiere:
+
+Imágenes img_align_celeba/
+
+Archivo identity_CelebA.txt
+
+🔍 Casos de Uso
+✅ Verificación 1:1
+🔎 Búsqueda 1:N
+📱 Autenticación móvil
+🏢 Control de acceso
+🆔 Validación de documentos
+
+📈 Rendimiento Estimado
+Métrica	Valor Típico
+Precisión	95–99%
+Velocidad	~50ms por imagen
+Tamaño Vector	512 dimensiones
+Memoria	~2KB por embedding
+
+🤝 Contribuciones
+Fork del repo
+
+git checkout -b feature/lo-que-sea
+
+Commit y push
+
+Pull request con ❤️
+
+📄 Licencia
+MIT License. Ver LICENSE.
+
+⭐ Si este proyecto te ayudó, deja una estrellita. ¡Gracias!
